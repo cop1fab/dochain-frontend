@@ -16,22 +16,28 @@ export const Routes = ({ isAuth }) => (
     <Route
       exact
       path="/login"
-      render={props => (!isAuth ? <Login {...props} /> : <Redirect to="/" />)}
+      render={props => (!isAuth ? <Login {...props} /> : <Login {...props} />)}
     />
     <Route
       exact
       path="/signup"
-      render={props => (!isAuth ? <Signup {...props} /> : <Redirect to="/" />)}
+      render={props =>
+        !isAuth ? <Signup {...props} /> : <Signup {...props} />
+      }
     />
     <Route
       exact
       path="/transact"
-      render={props => (!isAuth ? <Transact {...props} /> : <Redirect to="/" />)}
+      render={props =>
+        !isAuth ? <Transact {...props} /> : <Transact {...props} />
+      }
     />
     <Route
       exact
       path="/records"
-      render={props => (!isAuth ? <Records {...props} /> : <Redirect to="/" />)}
+      render={props =>
+        !isAuth ? <Records {...props} /> : <Records {...props} />
+      }
     />
     <Route
       exact
