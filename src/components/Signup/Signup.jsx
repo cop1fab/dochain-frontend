@@ -16,7 +16,9 @@ export class Login extends Component {
   onSubmitForm = e => {
     e.preventDefault();
     const { submitLoginForm, loginForm, validateInput } = this.props;
-    loginForm.type = document.querySelector('select[name="type"]').value;
+    if (document.querySelector('select[name="type"]')) {
+      loginForm.type = document.querySelector('select[name="type"]').value;
+    }
     validateInput(loginForm).then(hasError => {
       if (!hasError) {
         submitLoginForm(loginForm).then(res => {

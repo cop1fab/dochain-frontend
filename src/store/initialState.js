@@ -39,4 +39,22 @@ module.exports = {
       updatedAt: '',
     },
   },
+  transaction: {
+    loadingSingleTransaction: true,
+    submittingSingleTransaction: false,
+    requestError: '',
+    singleTransaction: {},
+    singleTransactionForm: {
+      firstName: '',
+      lastName: '',
+      middleName: '',
+      gender: '',
+      birtDate: '',
+      userType: '',
+      phone: '',
+      status: '',
+      createdAt: '',
+      updatedAt: '',
+    },
+  },
 };

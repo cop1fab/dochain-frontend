@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-// import PropTypes from 'prop-types';
 import TopNav from '../TopNav/TopNav';
 import './Login.scss';
 import Input from '../common/Input/Input';
