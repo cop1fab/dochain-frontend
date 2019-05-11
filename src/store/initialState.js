@@ -1,0 +1,25 @@
+module.exports = {
+  user: {
+    loadingSingleUser: true,
+    submittingUsers: false,
+    submittingSingleUser: false,
+    requestError: '',
+    singleUser: {},
+    singleUserForm: {
+      id: '',
+      avatar: '',
+      username: '',
+      email: '',
+      firstName: '',
+      lastName: '',
+      middleName: '',
+      gender: '',
+      birtDate: '',
+      userType: '',
+      phone: '',
+      status: '',
+      createdAt: '',
+      updatedAt: '',
+    },
+  },
+};
