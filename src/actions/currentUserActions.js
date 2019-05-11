@@ -64,6 +64,26 @@ export const submitLogin = formData => dispatch => {
     });
 };
 
+export const submitSignup = formData => dispatch => {
+  dispatch(setLoggingIn(true));
+  dispatch(setLoginError());
+  return axios
+    .post('/auth/signup', formData)
+    .then(res => {
+      const { user, token } = res.data;
+      localStorage.setItem('token', token);
+      dispatch(setCurrentUser({ ...user, token }));
+      dispatch(setLoggingIn(false));
+      return res;
+    })
+    .catch(err => {
+      const { message = err.message } = err.response ? err.response.data : {};
+      dispatch(setLoginError(message));
+      dispatch(setLoggingIn(false));
+      return err;
+    });
+};
+
 export const fetchCurrentUser = () => dispatch => {
   return axios
     .get('/auth/data')

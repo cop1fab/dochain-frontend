@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import './Login.scss';
+import './Signup.scss';
+import TopNav from '../TopNav/TopNav';
 import Input from '../common/Input/Input';
 import Logo from '../../assets/images/logo.png';
 import {
   handleLoginInput,
-  submitLogin,
+  submitSignup,
   validateLoginInput,
   setLoginError,
 } from '../../actions/currentUserActions';
@@ -15,6 +16,7 @@ export class Login extends Component {
   onSubmitForm = e => {
     e.preventDefault();
     const { submitLoginForm, loginForm, validateInput } = this.props;
+    loginForm.type = document.querySelector('select[name="type"]').value;
     validateInput(loginForm).then(hasError => {
       if (!hasError) {
         submitLoginForm(loginForm).then(res => {
@@ -39,9 +41,16 @@ export class Login extends Component {
   };
 
   render() {
-    const { loginForm, loginFormError, loggingIn, handleInput } = this.props;
+    const {
+      loginForm,
+      loginFormError,
+      loggingIn,
+      handleInput,
+      match,
+    } = this.props;
     return (
       <section className="hero is-fullheight">
+        <TopNav match={match} />
         <div className="hero-body">
           <div className="container">
             <div className="columns">
@@ -51,18 +60,32 @@ export class Login extends Component {
                   <div className="error-container">
                     {this.renderNotification()}
                   </div>
-                  <h1 className="title">Login</h1>
+                  <h1 className="title">Register</h1>
                   <form action="" onSubmit={this.onSubmitForm}>
                     <div className="field">
                       <p className="control has-icons-right">
+                        <label htmlFor="type">Accout type</label>
+                        <select name="type" className="input">
+                          <option value="user" hidden>
+                            Individual
+                          </option>
+                          <option value="organization">Organization</option>
+                        </select>
+                        <span className="icon is-small is-right">
+                          <i className="fa fa-at" />
+                        </span>
+                      </p>
+                    </div>
+                    <div className="field">
+                      <p className="control has-icons-right">
                         <Input
-                          name="username"
+                          name="email"
                           className={`input ${
-                            loginFormError.username ? 'is-danger' : ''
+                            loginFormError.email ? 'is-danger' : ''
                           }`}
                           type="text"
-                          value={loginForm.username}
-                          placeholder="Username"
+                          value={loginForm.email}
+                          placeholder="email"
                           onChange={handleInput}
                           required
                         />
@@ -89,6 +112,22 @@ export class Login extends Component {
                         </span>
                       </p>
                     </div>
+                    <div className="field">
+                      <p className="control has-icons-right">
+                        <Input
+                          name="passwordTwo"
+                          className={`input ${
+                            loginFormError.password ? 'is-danger' : ''
+                          }`}
+                          type="password"
+                          placeholder="Retype Password"
+                          required
+                        />
+                        <span className="icon is-small is-right">
+                          <i className="fa fa-lock" />
+                        </span>
+                      </p>
+                    </div>
                     <button
                       data-el="login-btn"
                       onClick={this.onSubmitForm}
@@ -96,13 +135,8 @@ export class Login extends Component {
                         loggingIn ? ' is-loading' : ''
                       }`}
                     >
-                      Login
+                      Register
                     </button>
-                    <p className="has-text-centered">
-                      Forgot
-                      <span className="is-primary hover-cursor"> Password</span>
-                      <span> ?</span>
-                    </p>
                   </form>
                 </div>
               </div>
@@ -141,7 +175,7 @@ export const mapStateToProps = ({
 
 export const mapDispatchToProps = dispatch => ({
   handleInput: ({ target }) => dispatch(handleLoginInput(target)),
-  submitLoginForm: payload => dispatch(submitLogin(payload)),
+  submitLoginForm: payload => dispatch(submitSignup(payload)),
   validateInput: payload => dispatch(validateLoginInput(payload)),
   clearError: () => dispatch(setLoginError('')),
 });

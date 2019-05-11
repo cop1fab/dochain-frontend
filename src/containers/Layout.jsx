@@ -24,8 +24,8 @@ const Layout = ({ children, match }) => (
             potential employees CV's. With Dochain you can now trust what people
             claim.
           </div>
-          <Link to="/login" class="btn primary text-white ">
-            GET STARTED
+          <Link to="/createBlock" class="btn primary text-white ">
+            CREATE BLOCK
           </Link>
         </div>
 

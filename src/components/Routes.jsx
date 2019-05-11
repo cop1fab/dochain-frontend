@@ -5,6 +5,7 @@ import { PropTypes } from 'prop-types';
 
 import Home from './Home/Home';
 import Login from './Login/Login';
+import Signup from './Signup/Signup';
 import UserQRCode from './Account/UserQRCode';
 
 export const Routes = ({ isAuth }) => (
@@ -18,7 +19,7 @@ export const Routes = ({ isAuth }) => (
     <Route
       exact
       path="/signup"
-      render={props => (!isAuth ? <Login {...props} /> : <Redirect to="/" />)}
+      render={props => (!isAuth ? <Signup {...props} /> : <Redirect to="/" />)}
     />
     <Route
       exact

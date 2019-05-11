@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
+import TopNav from '../TopNav/TopNav';
 import './Login.scss';
 import Input from '../common/Input/Input';
 import Logo from '../../assets/images/logo.png';
@@ -39,9 +41,17 @@ export class Login extends Component {
   };
 
   render() {
-    const { loginForm, loginFormError, loggingIn, handleInput } = this.props;
+    const {
+      loginForm,
+      loginFormError,
+      loggingIn,
+      handleInput,
+      children,
+      match,
+    } = this.props;
     return (
       <section className="hero is-fullheight">
+        <TopNav match={match} />
         <div className="hero-body">
           <div className="container">
             <div className="columns">
