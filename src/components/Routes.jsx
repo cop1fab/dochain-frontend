@@ -6,6 +6,7 @@ import { PropTypes } from 'prop-types';
 import Home from './Home/Home';
 import Login from './Home/Home';
 import UserQRCode from './Account/UserQRCode';
+import Transact from './Transact/Transact';
 
 export const Routes = ({ isAuth }) => (
   <Switch>
@@ -18,6 +19,11 @@ export const Routes = ({ isAuth }) => (
       exact
       path="/login"
       render={props => (!isAuth ? <Login {...props} /> : <Redirect to="/" />)}
+    />
+    <Route
+      exact
+      path="/transact"
+      render={props => (!isAuth ? <Transact {...props} /> : <Redirect to="/" />)}
     />
     <Route
       exact
