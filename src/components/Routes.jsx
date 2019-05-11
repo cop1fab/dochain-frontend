@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
 
@@ -16,14 +16,12 @@ export const Routes = ({ isAuth }) => (
     <Route
       exact
       path="/login"
-      render={props => (!isAuth ? <Login {...props} /> : <Login {...props} />)}
+      render={props => (!isAuth ? <Login {...props} /> : <Home {...props} />)}
     />
     <Route
       exact
       path="/signup"
-      render={props =>
-        !isAuth ? <Signup {...props} /> : <Signup {...props} />
-      }
+      render={props => (!isAuth ? <Signup {...props} /> : <Home {...props} />)}
     />
     <Route
       exact

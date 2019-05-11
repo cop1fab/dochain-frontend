@@ -5,6 +5,7 @@ import sml from '../../assets/sml.png';
 import search from '../../assets/search.png';
 import copy from '../../assets/copy.png';
 import { Link } from 'react-router-dom';
+import QRCode from '../common/QRCode/QRCode';
 
 export class Records extends Component {
   constructor(props) {
@@ -12,11 +13,17 @@ export class Records extends Component {
     this.state = {
       records: [],
       token: localStorage.token,
+      text: '',
     };
     this.getRecords = this.getRecords.bind(this);
     this.updateRecordsList = this.updateRecordsList.bind(this);
   }
 
+  onSearch = ({ target }) => {
+    this.setState({
+      text: target.value,
+    });
+  };
   // componentDidMount() {
   //   this.getRecords().then(result => {
   //     this.setState({
@@ -69,8 +76,8 @@ export class Records extends Component {
 
   render() {
     return (
-      <div class="record">
-        <header class="r-header">
+      <div className="record">
+        <header className="r-header">
           <div className="left">
             <Link to="/">
               <img src={logo} width="30px" height="40px" alt="" />
@@ -87,8 +94,8 @@ export class Records extends Component {
 
         <div className="middle">
           <nav>
-            <div class="">Records</div>
-            <div class="active">New Record </div>
+            <div className="">Records</div>
+            <div className="active">New Record </div>
           </nav>
           <div className="search">
             <form id="getRecords" onSubmit={this.getRecords}>
@@ -96,22 +103,31 @@ export class Records extends Component {
                 type="text"
                 placeholder="Search for employees' records"
                 id="seachBlock"
+                onChange={this.onSearch}
+                value={this.state.text}
               />
             </form>
-            <div class="icon" onClick={this.getRecords}>
+            <div className="icon" onClick={this.getRecords}>
               <img src={search} width="20px" height="20px" alt="" />
             </div>
           </div>
           <div className="details">
-            <div>
-              <b>Names :</b>{' '}
-              {this.state.records.length ? this.state.records[0].data.name : ''}
+            <div className="columns">
+              <div className="column">
+                <b>Names :</b>{' '}
+                {this.state.records.length
+                  ? this.state.records[0].data.name
+                  : ''}
+              </div>
+              <div className="column">
+                {this.state.text ? <QRCode text={this.state.text} /> : ''}
+              </div>
             </div>
           </div>
           <div className="title">RECORDS</div>
           <div className="">
             <div className="keys">
-              <table class="table">
+              <table className="table">
                 <thead>
                   <tr>
                     <th>Date</th>

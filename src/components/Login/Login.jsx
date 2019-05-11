@@ -45,7 +45,6 @@ export class Login extends Component {
       loginFormError,
       loggingIn,
       handleInput,
-      children,
       match,
     } = this.props;
     return (
