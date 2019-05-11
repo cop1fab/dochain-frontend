@@ -8,6 +8,7 @@ import Login from './Login/Login';
 import Signup from './Signup/Signup';
 import UserQRCode from './Account/UserQRCode';
 import Transact from './Transact/Transact';
+import Records from './Records/Records';
 
 export const Routes = ({ isAuth }) => (
   <Switch>
@@ -26,6 +27,11 @@ export const Routes = ({ isAuth }) => (
       exact
       path="/transact"
       render={props => (!isAuth ? <Transact {...props} /> : <Redirect to="/" />)}
+    />
+    <Route
+      exact
+      path="/records"
+      render={props => (!isAuth ? <Records {...props} /> : <Redirect to="/" />)}
     />
     <Route
       exact
