@@ -51,7 +51,7 @@ export const submitLogin = formData => dispatch => {
     .post('/auth/login', formData)
     .then(res => {
       const { user, token } = res.data;
-      localStorage.setItem('token', token);
+      localStorage.setItem('token', `Bearer ${token}`);
       dispatch(setCurrentUser({ ...user, token }));
       dispatch(setLoggingIn(false));
       return res;
