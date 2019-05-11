@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-<<<<<<< HEAD
-=======
 import QrReader from 'react-qr-reader';
->>>>>>> feat: implement transact
 import './Transact.scss';
 import logo from '../../assets/logo.png';
 import axios from '../../helpers/axios';
@@ -16,11 +13,6 @@ const initialForm = {
   title: '',
 };
 export class Transact extends Component {
-<<<<<<< HEAD
-  render() {
-    return (
-      <div>
-=======
   state = {
     result: 'no result',
     submitting: false,
@@ -103,49 +95,11 @@ export class Transact extends Component {
     const { scan, form, submitting, formError } = this.state;
     return (
       <div className="container">
->>>>>>> feat: implement transact
         <header>
           <Link to="/">
             <img src={logo} width="40px" height="auto" alt="" />
           </Link>
         </header>
-<<<<<<< HEAD
-        <div class="body">
-          <div className="top">
-            <div class="selected">New record</div>
-            {/* <div>Records</div> */}
-          </div>
-          <div className="form">
-            <div className="title">New record</div>
-            <form action="">
-              <div class="left">
-                <div className="bx">
-                  <div className="label">Address</div>
-                  <input type="text" placeholder="Public Key" />
-                </div>
-                <div className="bx">
-                  <div className="label">Name of the employee</div>
-                  <input type="text" />
-                </div>
-                <div className="bx">
-                  <div className="label">Title</div>
-                  <input type="text" placeholder="ex: Designer, Developer" />
-                </div>
-              </div>
-              <div>
-                <div className="bx">
-                  <div className="label">From</div>
-                  <input type="date" />
-                </div>
-                <div className="bx">
-                  <div className="label">To</div>
-                  <input type="date" />
-                </div>
-                <a class="btn primary text-white ">ADD RECORD</a>
-              </div>
-            </form>
-          </div>
-=======
         <div className="body">
           {scan ? (
             <QrReader
@@ -264,7 +218,6 @@ export class Transact extends Component {
               ADD RECORD
             </button>
           </form>
->>>>>>> feat: implement transact
         </div>
       </div>
     );
