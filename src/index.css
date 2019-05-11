@@ -11,3 +11,26 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.primary{
+    background: #1B8CFD;
+}
+.text-primary{
+    color:#1B8CFD;
+}
+.text-white{
+    color:#fff;
+}
+.btn {
+    font-weight: 600;
+	text-align: center;
+	font-size: 13px;
+    padding: 8.5px 20px;
+    border: 1px solid #1B8CFD;
+	border-radius: 2px;
+	-webkit-transition: 0.2s ease-out;
+	transition: 0.2s ease-out;
+	word-wrap: break-word;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0,0,0,.12);
+}

@@ -56,13 +56,13 @@ export class Login extends Component {
                     <div className="field">
                       <p className="control has-icons-right">
                         <Input
-                          name="email"
+                          name="username"
                           className={`input ${
-                            loginFormError.email ? 'is-danger' : ''
+                            loginFormError.username ? 'is-danger' : ''
                           }`}
                           type="text"
-                          value={loginForm.email}
-                          placeholder="Email"
+                          value={loginForm.username}
+                          placeholder="Username"
                           onChange={handleInput}
                           required
                         />

@@ -17,6 +17,11 @@ export const Routes = ({ isAuth }) => (
     />
     <Route
       exact
+      path="/signup"
+      render={props => (!isAuth ? <Login {...props} /> : <Redirect to="/" />)}
+    />
+    <Route
+      exact
       path="/qrcode/:publicKey"
       render={props =>
         isAuth ? <Login {...props} /> : <UserQRCode {...props} />

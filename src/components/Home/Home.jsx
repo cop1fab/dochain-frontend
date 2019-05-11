@@ -8,8 +8,6 @@ export class Home extends Component {
     const { match } = this.props;
     return (
       <Layout match={match}>
-        <br />
-        <div className="container">Welcome to Canvas</div>
       </Layout>
     );
   }
