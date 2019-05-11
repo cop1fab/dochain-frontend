@@ -9,10 +9,10 @@ const TopNav = () => (
       <img src={logo} width="50px" alt="logo" />
     </div>
     <nav>
-      <Link to="/login" class="btn  primary text-white">
+      <Link to="/login" class="btn primary text-white">
         LOGIN
       </Link>
-      <Link to="signup" class="btn  is-outlined text-primary">
+      <Link to="signup" class="btn is-outlined text-primary">
         REGISTER
       </Link>
     </nav>

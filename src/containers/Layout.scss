@@ -1,103 +1,104 @@
-$primary : #1B8CFD;
-.landing{
+$primary: #1b8cfd;
+.landing {
+  display: flex;
+  margin-top: 50px;
+  padding: 20px 100px;
+  justify-content: space-between;
+  .left {
+    width: 45%;
+    .title {
+      color: #1e2f4f;
+      font-size: 70px;
+      padding-bottom: 40px;
+    }
+    .subtitle {
+      padding-bottom: 70px;
+      color: #000;
+      font-size: 1.5em;
+    }
+    .btn {
+      border-radius: 30px;
+      padding: 12px 22px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.12);
+    }
+  }
+  @media only screen and (max-width: 765px) {
+    .left {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-content: center;
+      text-align: center;
+      .title {
+        font-size: 2.5em;
+        padding-bottom: 60px;
+      }
+      .subtitle {
+        font-size: 1em;
+        padding-bottom: 20px;
+      }
+    }
+    .right {
+      display: none;
+    }
+  }
+}
+
+@media only screen and (max-width: 765px) {
+  .landing {
+    margin-top: 30px;
+    padding: 20px;
+  }
+}
+
+.services {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 150px;
+  margin-bottom: 150px;
+  .right {
+    width: 45%;
+    margin-left: 5px;
+    .title {
+      font-size: 0.9em;
+      color: $primary;
+    }
+    .desc {
+      font-size: 1.8em;
+      color: #1e2f4f;
+      font-weight: bold;
+      margin-bottom: 30px;
+    }
+    .subtitle {
+      font-weight: 300;
+      font-size: 1.5em;
+      padding-bottom: 20px;
+      color: #000;
+    }
+    .btn {
+      font-size: 0.7em;
+    }
+  }
+  .left {
+    width: 45%;
     display: flex;
-    margin-top: 50px;
-    padding:20px 100px;
-    justify-content: space-between;
-    .left{
-        width: 45%;
-        .title{
-            color:#1E2F4F;
-            font-size: 70px;
-            padding-bottom: 40px;
-        }
-        .subtitle{
-            padding-bottom: 70px;
-            color:#777;
-            font-size: 1.1em;
-        }
-        .btn{
-            border-radius: 30px;
-            padding:12px 22px;
-            box-shadow: 0 2px 5px rgba(0,0,0,.12);
-        }
+    justify-content: flex-end;
+    .pad {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 30px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.12);
+      font-size: 1em;
+      margin: 20px;
+      .title {
+        text-align: center;
+        font-size: 1.3em;
+        padding-top: 20px;
+        color: #000;
+        font-weight: 300;
+      }
     }
-    @media only screen and (max-width:765px){
-        .left{
-            width: 100%;
-            display:flex;
-            flex-direction: column;
-            align-content: center;
-            text-align: center;
-            .title{
-                font-size: 2.5em;
-                padding-bottom: 60px;
-            }
-            .subtitle{
-                font-size: 1em;
-                padding-bottom: 20px;
-            }
-        }
-        .right{
-            display: none;
-        }
-    }
-}
-
-@media only screen and (max-width:765px){
-    .landing{
-        margin-top:30px;
-        padding: 20px;
-    }
-}
-
-.services{
-    display:flex;
-    justify-content: space-around;
-    margin-top: 150px;
-    margin-bottom:150px;
-    .right{
-        width:45%;
-        margin-left:5px;
-        .title{
-            font-size: .9em;
-            color:$primary;
-        }
-        .desc{
-            font-size: 1.8em;
-            color:#1E2F4F;
-            font-weight:bold;
-            margin-bottom: 30px;
-        }
-        .subtitle{
-            font-weight:300;
-            font-size: 1em;
-            padding-bottom: 20px;
-        }
-        .btn{
-            font-size: .7em;
-        }
-    }
-    .left{
-        width: 45%;
-        display:flex;
-        justify-content: flex-end;
-        .pad{
-            display:flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding:30px;
-            box-shadow: 0 2px 5px rgba(0,0,0,.12);
-            font-size: 1em;
-            margin:20px;
-            .title{
-                text-align: center;
-                font-size: .8em;
-                padding-top: 20px;
-                color:#666;
-                font-weight: 300;
-            }
-        }
-    }
+  }
 }
