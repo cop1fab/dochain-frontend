@@ -33,7 +33,8 @@ export class Records extends Component {
       'form[id="getRecords"] input',
     ).value;
     this.request = new Request(
-      `${process.env.SERVER}/blockchains/${this.publicKey}`,
+      `${process.env.SERVER ||
+        'https://dochain-api.herokuapp.com'}/blockchains/${this.publicKey}`,
       {
         method: 'GET',
         mode: 'cors',
