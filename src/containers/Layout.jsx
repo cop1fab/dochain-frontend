@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import TopNav from '../components/TopNav/TopNav';
+import { Link } from 'react-router-dom';
 import './Layout.scss';
 import illustration from '../assets/il1.png';
 import a from '../assets/icons8-merge_files.png';
@@ -17,26 +18,25 @@ const Layout = ({ children, match }) => (
         <div className="left">
           <div className="title">
             The platform <br /> that validates authenticity
-        </div>
+          </div>
           <div className="subtitle">
-            Save time, money and resources and check the authenticity of potential employees CV's.
-            With Dochain you can now trust what people claim.
-        </div>
-          <a class="btn primary text-white ">GET STARTED</a>
+            Save time, money and resources and check the authenticity of
+            potential employees CV's. With Dochain you can now trust what people
+            claim.
+          </div>
+          <Link to="/login" class="btn primary text-white ">
+            GET STARTED
+          </Link>
         </div>
 
         <div className="right">
           <img src={illustration} width="550px" alt="" />
         </div>
       </div>
-
     </div>
 
-
     <div className="services">
-
       <div className="left">
-
         <div>
           <div className="pad">
             <img src={a} width="40px" height="auto" alt="" />
@@ -44,7 +44,9 @@ const Layout = ({ children, match }) => (
           </div>
           <div className="pad">
             <img src={b} width="40px" height="auto" alt="" />
-            <div className="title">All your information <br /> in one olace</div>
+            <div className="title">
+              All your information <br /> in one olace
+            </div>
           </div>
         </div>
 
@@ -55,10 +57,11 @@ const Layout = ({ children, match }) => (
           </div>
           <div className="pad">
             <img src={d} width="40px" height="auto" alt="" />
-            <div className="title">Verification from relevant <br /> stakeholders</div>
+            <div className="title">
+              Verification from relevant <br /> stakeholders
+            </div>
           </div>
         </div>
-
       </div>
 
       <div className="right">
@@ -71,17 +74,11 @@ const Layout = ({ children, match }) => (
         <div className="subtitle">
           We add the Convenience of having your CV digital <br />
           and laced with block chain authentication
-      </div>
-        <a class="btn outline text-primary ">MORE DETAILS</a>
+        </div>
+        <button class="btn outline text-primary ">MORE DETAILS</button>
       </div>
     </div>
-
-
-
   </div>
-
-
-
 );
 
 Layout.propTypes = {

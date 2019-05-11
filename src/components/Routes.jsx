@@ -4,20 +4,21 @@ import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
 
 import Home from './Home/Home';
-import Login from './Home/Home';
+import Login from './Login/Login';
 import UserQRCode from './Account/UserQRCode';
 import Transact from './Transact/Transact';
 
 export const Routes = ({ isAuth }) => (
   <Switch>
-    <Route
-      exact
-      path="/"
-      render={props => (!isAuth ? <Login {...props} /> : <Home {...props} />)}
-    />
+    <Route exact path="/" component={Home} />
     <Route
       exact
       path="/login"
+      render={props => (!isAuth ? <Login {...props} /> : <Redirect to="/" />)}
+    />
+    <Route
+      exact
+      path="/signup"
       render={props => (!isAuth ? <Login {...props} /> : <Redirect to="/" />)}
     />
     <Route
@@ -43,7 +44,7 @@ Routes.defaultProps = {
   isAuth: false,
 };
 
-export const mapStateToProps = ({ user: { isAuth } }) => ({
+export const mapStateToProps = ({ currentUser: { isAuth } }) => ({
   isAuth,
 });
 
