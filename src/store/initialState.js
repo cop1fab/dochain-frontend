@@ -5,11 +5,11 @@ module.exports = {
     signingUp: false,
     loginError: '',
     loginForm: {
-      username: '',
+      email: '',
       password: '',
     },
     loginFormError: {
-      username: '',
+      email: '',
       password: '',
     },
     data: {

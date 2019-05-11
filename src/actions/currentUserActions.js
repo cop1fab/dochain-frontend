@@ -50,9 +50,9 @@ export const submitLogin = formData => dispatch => {
   return axios
     .post('/auth/login', formData)
     .then(res => {
-      const { user } = res.data;
-      localStorage.setItem('token', user.token);
-      dispatch(setCurrentUser(user));
+      const { user, token } = res.data;
+      localStorage.setItem('token', token);
+      dispatch(setCurrentUser({ ...user, token }));
       dispatch(setLoggingIn(false));
       return res;
     })

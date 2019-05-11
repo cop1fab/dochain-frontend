@@ -5,7 +5,8 @@ const {
   data: { token },
 } = store.getState().currentUser;
 
-const baseURL = process.env.API_URL || 'https://dochain-frontend.herokuapp.com';
+// const baseURL = process.env.API_URL || 'https://dochain-api.herokuapp.com';
+const baseURL = process.env.API_URL || 'http://localhost:3000';
 
 const http = axios.create({
   baseURL,
