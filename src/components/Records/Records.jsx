@@ -75,6 +75,10 @@ export class Records extends Component {
     });
   }
 
+  renderQRCode = () => {
+    return this.state.text.length > 10 ? <QRCode text={this.state.text} /> : '';
+  };
+
   render() {
     return (
       <div className="record">
@@ -113,16 +117,14 @@ export class Records extends Component {
             </div>
           </div>
           <div className="details">
-            <div className="columns">
-              <div className="column">
+            <div className="container columns is-multiline">
+              <div className="column is-6">
                 <b>Names :</b>{' '}
                 {this.state.records.length
                   ? this.state.records[0].data.name
                   : ''}
               </div>
-              <div className="column">
-                {this.state.text ? <QRCode text={this.state.text} /> : ''}
-              </div>
+              <div className="column is-6">{this.renderQRCode()}</div>
             </div>
           </div>
           <div className="title">RECORDS</div>
